@@ -1,18 +1,41 @@
 package test.service;
 
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import test.dao.CustomerDao;
-import test.dao.CustomerDaoImpl;
+
+import java.util.Date;
 
 public class CustomerServiceImpl implements CustomerService {
-    public CustomerServiceImpl(){
+
+    private String className;
+    private Integer classPlace;
+    private Date classData;
+
+    public CustomerServiceImpl(String className, Integer classPlace, Date classData) {
+        this.className = className;
+        this.classPlace = classPlace;
+        this.classData = classData;
+    }
+
+    private Date getClassData() {
+        return classData;
+    }
+
+    private Integer getClassPlace() {
+        return classPlace;
+    }
+
+    private String getClassName() {
+        return className;
+    }
+
+    public CustomerServiceImpl() {
         System.out.println("bean created!");
     }
 
-    private CustomerDao customerDaoImpl=new CustomerDaoImpl();
+   // private CustomerDao customerDaoImpl = new CustomerDaoImpl();
+
     public void saveCustomer() {
-        System.out.println("Service");
-        customerDaoImpl.saveCustomer();
+        System.out.println("Service"+getClassName()+getClassPlace()+getClassData());
+      //  customerDaoImpl.saveCustomer();
     }
 }
