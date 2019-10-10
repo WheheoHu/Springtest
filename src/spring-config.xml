@@ -2,13 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="CustomerDao" class="test.dao.CustomerDaoImpl"/>
-    <bean id="CustomerService" class="test.service.CustomerServiceImpl"/>
+    <bean id="customerDao" class="test.dao.CustomerDaoImpl"/>
 
-    <bean id="ConstCustomerService" class="test.service.CustomerServiceImpl">
+    <bean id="constCustomerService" class="test.service.CustomerServiceImpl">
         <constructor-arg name="className" value="翰学楼"/>
         <constructor-arg name="classPlace" value="1010"/>
         <constructor-arg name="classData" ref="todayDate" />
+        <property name="customerDao" ref="customerDao"/>
     </bean>
 
     <bean id="todayDate" class="java.util.Date"/>
