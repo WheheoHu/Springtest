@@ -5,12 +5,21 @@ import test.dao.CustomerDao;
 import test.dao.CustomerDaoImpl;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public class CustomerServiceImpl implements CustomerService {
 
     private String className;
     private Integer classPlace;
     private Date classData;
+
+    private Map<String, String> stringMap;
+    private List<String> stringList;
+
+    public void setStringMap(Map<String, String> stringMap) {
+        this.stringMap = stringMap;
+    }
 
     private CustomerDao customerDao = null;
 
@@ -39,6 +48,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     public void saveCustomer() {
         System.out.println("Service" + " " + getClassName() + " " + getClassPlace() + " " + getClassData());
+        System.out.println(stringMap);
+        System.out.println(stringList);
         customerDao.saveCustomer();
+    }
+
+    public void setStringList(List<String> stringList) {
+        this.stringList = stringList;
     }
 }

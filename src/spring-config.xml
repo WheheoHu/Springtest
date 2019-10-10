@@ -7,8 +7,22 @@
     <bean id="constCustomerService" class="test.service.CustomerServiceImpl">
         <constructor-arg name="className" value="翰学楼"/>
         <constructor-arg name="classPlace" value="1010"/>
-        <constructor-arg name="classData" ref="todayDate" />
+        <constructor-arg name="classData" ref="todayDate"/>
         <property name="customerDao" ref="customerDao"/>
+        <property name="stringMap">
+            <map>
+                <entry key="key1" value="nnn"/>
+                <entry key="key2" value="nn"/>
+                <entry key="key3" value="n"/>
+            </map>
+        </property>
+        <property name="stringList">
+            <list>
+                <value>ssss</value>
+                <value>sss</value>
+                <value>ss</value>
+            </list>
+        </property>
     </bean>
 
     <bean id="todayDate" class="java.util.Date"/>
